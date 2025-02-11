@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarketPulse.View;
 
 namespace MarketPulse
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        // 用 Dictionary 記錄已開啟的 Tab，方便查詢
+        private Dictionary<string, TabPage> openedTabs = new Dictionary<string, TabPage>();
+
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -22,15 +26,11 @@ namespace MarketPulse
 
         }
 
-        // 用 Dictionary 記錄已開啟的 Tab，方便查詢
-        private Dictionary<string, TabPage> openedTabs = new Dictionary<string, TabPage>();
-
-        private void OpenTab(string tabKey, string tabTitle, string tabContent)
+        private void OpenFormInTab(string tabKey, string tabTitle, Form form)
         {
-            // 檢查是否已經存在該 Tab
             if (openedTabs.ContainsKey(tabKey))
             {
-                // 若已存在，直接切換到該 Tab
+                // 若已開啟，直接切換到該 Tab
                 tabControl1.SelectedTab = openedTabs[tabKey];
             }
             else
@@ -38,22 +38,21 @@ namespace MarketPulse
                 // 建立新的 TabPage
                 TabPage newTab = new TabPage(tabTitle);
 
-                // 可選：在 Tab 中加入內容
-                Label label = new Label();
-                label.Text = tabContent;
-                label.Dock = DockStyle.Fill;
-                label.TextAlign = ContentAlignment.MiddleCenter;
+                // 嵌入 Form 到 TabPage 中
+                form.TopLevel = false;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Dock = DockStyle.Fill;
+                newTab.Controls.Add(form);
+                form.Show();
 
-                newTab.Controls.Add(label);
-
-                // 將 Tab 加入 TabControl
+                // 將 TabPage 加入到 TabControl
                 tabControl1.TabPages.Add(newTab);
                 tabControl1.SelectedTab = newTab;
 
                 // 記錄已開啟的 Tab
                 openedTabs[tabKey] = newTab;
 
-                // 加入關閉按鈕功能（可選）
+                // 當 Tab 被關閉時，自動從 Dictionary 中移除
                 newTab.Disposed += (s, e) => openedTabs.Remove(tabKey);
             }
         }
@@ -76,7 +75,7 @@ namespace MarketPulse
 
         private void ButtonStock_Click(object sender, EventArgs e)
         {
-            OpenTab("Stock", "Stock", "這是 Stock 的內容");
+            OpenFormInTab("MyStocks", "股票資訊", new MyStocksForm());
         }
     }
 }

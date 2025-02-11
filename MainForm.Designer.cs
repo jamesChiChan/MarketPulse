@@ -1,6 +1,6 @@
 ﻿namespace MarketPulse
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -31,8 +31,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonStock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.buttonToolboxCollapse = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonToolboxCollapse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -44,6 +44,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -55,8 +56,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Controls.Add(this.buttonToolboxCollapse);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 150;
+            this.splitContainer1.Size = new System.Drawing.Size(1067, 562);
+            this.splitContainer1.SplitterDistance = 200;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonStock
@@ -64,8 +66,9 @@
             this.buttonStock.BackColor = System.Drawing.SystemColors.Control;
             this.buttonStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonStock.Location = new System.Drawing.Point(0, 0);
+            this.buttonStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStock.Name = "buttonStock";
-            this.buttonStock.Size = new System.Drawing.Size(150, 33);
+            this.buttonStock.Size = new System.Drawing.Size(200, 41);
             this.buttonStock.TabIndex = 0;
             this.buttonStock.Text = "股票";
             this.buttonStock.UseVisualStyleBackColor = false;
@@ -73,43 +76,48 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.AllowDrop = true;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(20, 0);
+            this.tabControl1.Location = new System.Drawing.Point(27, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(626, 450);
+            this.tabControl1.Size = new System.Drawing.Size(835, 562);
             this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(827, 533);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // buttonToolboxCollapse
             // 
             this.buttonToolboxCollapse.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.buttonToolboxCollapse.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonToolboxCollapse.Location = new System.Drawing.Point(0, 0);
+            this.buttonToolboxCollapse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonToolboxCollapse.Name = "buttonToolboxCollapse";
-            this.buttonToolboxCollapse.Size = new System.Drawing.Size(20, 450);
+            this.buttonToolboxCollapse.Size = new System.Drawing.Size(27, 562);
             this.buttonToolboxCollapse.TabIndex = 0;
             this.buttonToolboxCollapse.Text = "收合工具列←";
             this.buttonToolboxCollapse.UseVisualStyleBackColor = false;
             this.buttonToolboxCollapse.Click += new System.EventHandler(this.buttonToolboxCollapse_Click);
             // 
-            // tabPage1
+            // MainForm
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(618, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
