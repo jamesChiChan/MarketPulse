@@ -31,20 +31,18 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonStock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonToolboxCollapse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -66,7 +64,7 @@
             this.buttonStock.BackColor = System.Drawing.SystemColors.Control;
             this.buttonStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonStock.Location = new System.Drawing.Point(0, 0);
-            this.buttonStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStock.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStock.Name = "buttonStock";
             this.buttonStock.Size = new System.Drawing.Size(200, 41);
             this.buttonStock.TabIndex = 0;
@@ -77,32 +75,20 @@
             // tabControl1
             // 
             this.tabControl1.AllowDrop = true;
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(27, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(835, 562);
             this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(827, 533);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // buttonToolboxCollapse
             // 
             this.buttonToolboxCollapse.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.buttonToolboxCollapse.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonToolboxCollapse.Location = new System.Drawing.Point(0, 0);
-            this.buttonToolboxCollapse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonToolboxCollapse.Margin = new System.Windows.Forms.Padding(4);
             this.buttonToolboxCollapse.Name = "buttonToolboxCollapse";
             this.buttonToolboxCollapse.Size = new System.Drawing.Size(27, 562);
             this.buttonToolboxCollapse.TabIndex = 0;
@@ -116,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -124,7 +110,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -135,7 +120,6 @@
         private System.Windows.Forms.Button buttonToolboxCollapse;
         private System.Windows.Forms.Button buttonStock;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 
