@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MarketPulse.View;
+using MarketPulse.Views;
 
 namespace MarketPulse
 {
@@ -76,6 +77,11 @@ namespace MarketPulse
         private void ButtonStock_Click(object sender, EventArgs e)
         {
             OpenFormInTab("MyStocks", "股票資訊", new MyStocksForm());
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            OpenFormInTab("SearchStocks", "搜尋股票", new SearchForm());
         }
     }
 }

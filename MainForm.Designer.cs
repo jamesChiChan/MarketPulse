@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.buttonToolboxCollapse = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.buttonSearch);
             this.splitContainer1.Panel1.Controls.Add(this.buttonStock);
             // 
             // splitContainer1.Panel2
@@ -59,14 +61,28 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
+            // buttonSearch
+            // 
+            this.buttonSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSearch.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonSearch.Location = new System.Drawing.Point(0, 55);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(200, 55);
+            this.buttonSearch.TabIndex = 1;
+            this.buttonSearch.Text = "搜尋";
+            this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
             // buttonStock
             // 
             this.buttonStock.BackColor = System.Drawing.SystemColors.Control;
             this.buttonStock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonStock.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.buttonStock.Location = new System.Drawing.Point(0, 0);
             this.buttonStock.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStock.Name = "buttonStock";
-            this.buttonStock.Size = new System.Drawing.Size(200, 41);
+            this.buttonStock.Size = new System.Drawing.Size(200, 55);
             this.buttonStock.TabIndex = 0;
             this.buttonStock.Text = "股票";
             this.buttonStock.UseVisualStyleBackColor = false;
@@ -120,6 +136,7 @@
         private System.Windows.Forms.Button buttonToolboxCollapse;
         private System.Windows.Forms.Button buttonStock;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }
 
