@@ -33,6 +33,7 @@
             this.buttonStock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.buttonToolboxCollapse = new System.Windows.Forms.Button();
+            this.buttonGlobalPrices = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -49,6 +50,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.buttonGlobalPrices);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSearch);
             this.splitContainer1.Panel1.Controls.Add(this.buttonStock);
             // 
@@ -112,6 +114,19 @@
             this.buttonToolboxCollapse.UseVisualStyleBackColor = false;
             this.buttonToolboxCollapse.Click += new System.EventHandler(this.buttonToolboxCollapse_Click);
             // 
+            // buttonGlobalPrices
+            // 
+            this.buttonGlobalPrices.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGlobalPrices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonGlobalPrices.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonGlobalPrices.Location = new System.Drawing.Point(0, 110);
+            this.buttonGlobalPrices.Name = "buttonGlobalPrices";
+            this.buttonGlobalPrices.Size = new System.Drawing.Size(200, 55);
+            this.buttonGlobalPrices.TabIndex = 2;
+            this.buttonGlobalPrices.Text = "國際物價";
+            this.buttonGlobalPrices.UseVisualStyleBackColor = false;
+            this.buttonGlobalPrices.Click += new System.EventHandler(this.buttonGlobalPrices_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -137,6 +152,7 @@
         private System.Windows.Forms.Button buttonStock;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonGlobalPrices;
     }
 }
 

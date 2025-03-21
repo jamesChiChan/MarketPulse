@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GlobalPricesControl.cs" />
     <Compile Include="Controllers\MyStocksControl.cs" />
     <Compile Include="Controllers\SearchControl.cs" />
     <Compile Include="MainForm.cs">
@@ -103,10 +104,17 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\GlobalPricesInfo.cs" />
     <Compile Include="Models\MyStocksInfo.cs" />
     <Compile Include="Models\SearchInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\GlobalPricesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GlobalPricesForm.Designer.cs">
+      <DependentUpon>GlobalPricesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MyStocksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +140,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\GlobalPricesForm.resx">
+      <DependentUpon>GlobalPricesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MyStocksForm.resx">
       <DependentUpon>MyStocksForm.cs</DependentUpon>
     </EmbeddedResource>

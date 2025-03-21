@@ -24,7 +24,11 @@ namespace MarketPulse
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.Padding = new Point(20, 4); // 預留空間給關閉按鈕
 
+            tabControl1.DrawItem += tabControl1_DrawItem;
+            tabControl1.MouseDown += tabControl1_MouseDown;
         }
 
         private void OpenFormInTab(string tabKey, string tabTitle, Form form)
@@ -83,5 +87,47 @@ namespace MarketPulse
         {
             OpenFormInTab("SearchStocks", "搜尋股票", new SearchForm());
         }
+
+        private void buttonGlobalPrices_Click(object sender, EventArgs e)
+        {
+            OpenFormInTab("GlobalPrices", "國際物價", new GlobalPricesForm());
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabPage tabPage = tabControl1.TabPages[e.Index];
+            Rectangle tabRect = tabControl1.GetTabRect(e.Index);
+
+            // 繪製標籤文字
+            TextRenderer.DrawText(e.Graphics, tabPage.Text, e.Font, tabRect, tabPage.ForeColor);
+
+            // 畫關閉按鈕 (✕)
+            Rectangle closeButton = new Rectangle(tabRect.Right - 15, tabRect.Top + 4, 12, 12);
+            e.Graphics.DrawString("x", e.Font, Brushes.Black, closeButton.Location);
+        }
+
+        private void tabControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < tabControl1.TabPages.Count; i++)
+            {
+                Rectangle tabRect = tabControl1.GetTabRect(i);
+                Rectangle closeButton = new Rectangle(tabRect.Right - 15, tabRect.Top + 4, 12, 12);
+
+                if (closeButton.Contains(e.Location))
+                {
+                    var tabPage = tabControl1.TabPages[i];
+
+                    string keyToRemove = openedTabs.FirstOrDefault(x => x.Value == tabPage).Key;
+                    if (!string.IsNullOrEmpty(keyToRemove))
+                    {
+                        openedTabs.Remove(keyToRemove);
+                    }
+
+                    tabControl1.TabPages.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
     }
 }
