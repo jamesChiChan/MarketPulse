@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonGlobalPrices = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.buttonToolboxCollapse = new System.Windows.Forms.Button();
-            this.buttonGlobalPrices = new System.Windows.Forms.Button();
+            this.buttonForeignExchange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,6 +51,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.buttonForeignExchange);
             this.splitContainer1.Panel1.Controls.Add(this.buttonGlobalPrices);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSearch);
             this.splitContainer1.Panel1.Controls.Add(this.buttonStock);
@@ -63,11 +65,24 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
+            // buttonGlobalPrices
+            // 
+            this.buttonGlobalPrices.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGlobalPrices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonGlobalPrices.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonGlobalPrices.Location = new System.Drawing.Point(0, 110);
+            this.buttonGlobalPrices.Name = "buttonGlobalPrices";
+            this.buttonGlobalPrices.Size = new System.Drawing.Size(200, 55);
+            this.buttonGlobalPrices.TabIndex = 2;
+            this.buttonGlobalPrices.Text = "國際物價";
+            this.buttonGlobalPrices.UseVisualStyleBackColor = false;
+            this.buttonGlobalPrices.Click += new System.EventHandler(this.buttonGlobalPrices_Click);
+            // 
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.SystemColors.Control;
             this.buttonSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSearch.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonSearch.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.buttonSearch.Location = new System.Drawing.Point(0, 55);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(200, 55);
@@ -80,13 +95,13 @@
             // 
             this.buttonStock.BackColor = System.Drawing.SystemColors.Control;
             this.buttonStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonStock.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonStock.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.buttonStock.Location = new System.Drawing.Point(0, 0);
             this.buttonStock.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStock.Name = "buttonStock";
             this.buttonStock.Size = new System.Drawing.Size(200, 55);
             this.buttonStock.TabIndex = 0;
-            this.buttonStock.Text = "股票";
+            this.buttonStock.Text = "個人股票";
             this.buttonStock.UseVisualStyleBackColor = false;
             this.buttonStock.Click += new System.EventHandler(this.ButtonStock_Click);
             // 
@@ -114,18 +129,18 @@
             this.buttonToolboxCollapse.UseVisualStyleBackColor = false;
             this.buttonToolboxCollapse.Click += new System.EventHandler(this.buttonToolboxCollapse_Click);
             // 
-            // buttonGlobalPrices
+            // buttonForeignExchange
             // 
-            this.buttonGlobalPrices.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGlobalPrices.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonGlobalPrices.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.buttonGlobalPrices.Location = new System.Drawing.Point(0, 110);
-            this.buttonGlobalPrices.Name = "buttonGlobalPrices";
-            this.buttonGlobalPrices.Size = new System.Drawing.Size(200, 55);
-            this.buttonGlobalPrices.TabIndex = 2;
-            this.buttonGlobalPrices.Text = "國際物價";
-            this.buttonGlobalPrices.UseVisualStyleBackColor = false;
-            this.buttonGlobalPrices.Click += new System.EventHandler(this.buttonGlobalPrices_Click);
+            this.buttonForeignExchange.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonForeignExchange.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonForeignExchange.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonForeignExchange.Location = new System.Drawing.Point(0, 165);
+            this.buttonForeignExchange.Name = "buttonForeignExchange";
+            this.buttonForeignExchange.Size = new System.Drawing.Size(200, 55);
+            this.buttonForeignExchange.TabIndex = 3;
+            this.buttonForeignExchange.Text = "外匯";
+            this.buttonForeignExchange.UseVisualStyleBackColor = false;
+            this.buttonForeignExchange.Click += new System.EventHandler(this.buttonForeignExchange_Click);
             // 
             // MainForm
             // 
@@ -153,6 +168,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonGlobalPrices;
+        private System.Windows.Forms.Button buttonForeignExchange;
     }
 }
 

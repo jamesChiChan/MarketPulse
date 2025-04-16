@@ -93,6 +93,11 @@ namespace MarketPulse
             OpenFormInTab("GlobalPrices", "國際物價", new GlobalPricesForm());
         }
 
+        private void buttonForeignExchange_Click(object sender, EventArgs e)
+        {
+            OpenFormInTab("Currency Convert", "外匯", new CurrencyConvertForm());
+        }
+
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
             TabPage tabPage = tabControl1.TabPages[e.Index];
@@ -101,7 +106,7 @@ namespace MarketPulse
             // 繪製標籤文字
             TextRenderer.DrawText(e.Graphics, tabPage.Text, e.Font, tabRect, tabPage.ForeColor);
 
-            // 畫關閉按鈕 (✕)
+            // 畫關閉按鈕
             Rectangle closeButton = new Rectangle(tabRect.Right - 15, tabRect.Top + 4, 12, 12);
             e.Graphics.DrawString("x", e.Font, Brushes.Black, closeButton.Location);
         }
@@ -129,5 +134,6 @@ namespace MarketPulse
             }
         }
 
+        
     }
 }
