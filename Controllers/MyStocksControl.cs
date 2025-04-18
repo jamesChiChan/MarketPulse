@@ -17,9 +17,10 @@ namespace MarketPulse.Controllers
             return await MyStocksInfo.GetStockPrices(symbol);
         }
 
-        public async Task<List<MyStocksInfo>> FetchStockDataByYahoo(List<string> symbol)
+        public async Task<List<MyStocksInfo>> FetchStockDataByYahoo(string filePath)
         {
-            return await MyStocksInfo.GetStockPricesByYahoo(symbol);
+            List<string> symbols = MyStocksInfo.ReadSymbolsFromFile(filePath);
+            return await MyStocksInfo.GetStockPricesByYahoo(symbols);
         }
     }
 }

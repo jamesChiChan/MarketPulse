@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,17 @@ namespace MarketPulse.Views
             DGView_Search.Columns[4].HeaderText = "成交量";
             DGView_Search.Columns[5].HeaderText = "開盤價";
             DGView_Search.Columns[6].HeaderText = "更新時間";
+
+            // 加入新增按鈕與欄位
+            var addBtn = new DataGridViewButtonColumn
+            {
+                Name = "AddButton",
+                HeaderText = "",
+                Text = "新增",
+                UseColumnTextForButtonValue = true
+            };
+            if (!DGView_Search.Columns.Contains("AddButton"))
+                DGView_Search.Columns.Add(addBtn);
         }
 
         private void DGView_Search_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -69,6 +81,26 @@ namespace MarketPulse.Views
                         e.CellStyle.ForeColor = Color.Green; // 下跌 (綠色)
                         //e.CellStyle.BackColor = Color.Green;
                     }
+                }
+            }
+        }
+
+        private void DGView_Search_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGView_Search.Columns[e.ColumnIndex].Name == "AddButton")
+            {
+                string stockSymbol = DGView_Search.Rows[e.RowIndex].Cells["Symbol"].Value.ToString();
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mystocks.txt");
+                var allLines = File.Exists(filePath) ? File.ReadAllLines(filePath).ToList() : new List<string>();
+
+                if (!allLines.Contains(stockSymbol))
+                {
+                    File.AppendAllLines(filePath, new[] { stockSymbol });
+                    MessageBox.Show($"{stockSymbol} 已加入我的股票清單");
+                }
+                else
+                {
+                    MessageBox.Show($"{stockSymbol} 已經存在！");
                 }
             }
         }

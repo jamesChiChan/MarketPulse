@@ -95,6 +95,7 @@
             this.DGView_Search.RowTemplate.Height = 27;
             this.DGView_Search.Size = new System.Drawing.Size(800, 375);
             this.DGView_Search.TabIndex = 1;
+            this.DGView_Search.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGView_Search_CellContentClick);
             // 
             // SearchForm
             // 

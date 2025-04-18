@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,21 +50,45 @@ namespace MarketPulse.View
 
         private async void buttonUpdate_Click(object sender, EventArgs e)
         {
-            List<string> stockSymbols = new List<string> { "2330.TW", "0050.TW", "2412.TW", "2610.TW", "00650L.TW" };
-            //List<MyStocksInfo> stocks = await _controller.FetchStockData(stockSymbols);
-            List<MyStocksInfo> stocks = await _controller.FetchStockDataByYahoo(stockSymbols);
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mystocks.txt"); ;
+            //List<string> stockSymbols = new List<string> { "2330.TW", "0050.TW", "2412.TW", "2610.TW", "00650L.TW" };
+            List<MyStocksInfo> stocks = await _controller.FetchStockDataByYahoo(filePath);
             // 將Grid綁定事件，觸發漲跌幅的顏色變化
-            stockDataGrid.CellFormatting += StockDataGrid_CellFormatting;
+            DGView_MyStocks.CellFormatting += StockDataGrid_CellFormatting;
 
             // 將資料綁定到 StockDataGrid
-            stockDataGrid.DataSource = stocks;
-            stockDataGrid.Columns[0].HeaderText = "股票代號";
-            stockDataGrid.Columns[1].HeaderText = "價格";
-            stockDataGrid.Columns[2].HeaderText = "漲跌";
+            DGView_MyStocks.DataSource = stocks;
+            DGView_MyStocks.Columns[0].HeaderText = "股票代號";
+            DGView_MyStocks.Columns[1].HeaderText = "價格";
+            DGView_MyStocks.Columns[2].HeaderText = "漲跌";
+            DGView_MyStocks.Columns[3].HeaderText = "成交量";
+            DGView_MyStocks.Columns[4].HeaderText = "開盤價";
+            DGView_MyStocks.Columns[5].HeaderText = "更新時間";
 
-            // 設定更新按鈕的圖示
-            //Image originalImage = Image.FromFile("D:\\7000\\Programming\\C#\\MarketPulse\\Images\\update.png");
-            //buttonUpdate.Image = new Bitmap(originalImage, new Size(40, 32));
+            var delBtn = new DataGridViewButtonColumn
+            {
+                Name = "DeleteButton",
+                HeaderText = "",
+                Text = "刪除",
+                UseColumnTextForButtonValue = true
+            };
+            if (!DGView_MyStocks.Columns.Contains("DeleteButton"))
+                DGView_MyStocks.Columns.Add(delBtn);
+            DGView_MyStocks.Columns[6].HeaderText = "刪除";
+        }
+
+        private void DGView_MyStocks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGView_MyStocks.Columns[e.ColumnIndex].Name == "DeleteButton")
+            {
+                string symbol = DGView_MyStocks.Rows[e.RowIndex].Cells["StockSymbol"].Value.ToString();
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mystocks.txt");
+                var lines = File.ReadAllLines(filePath).ToList();
+                lines.RemoveAll(l => l.Trim() == symbol);
+                File.WriteAllLines(filePath, lines);
+                MessageBox.Show($"{symbol} 已從清單中移除");
+                buttonUpdate_Click(sender, e); // 重新載入顯示
+            }
         }
     }
 }

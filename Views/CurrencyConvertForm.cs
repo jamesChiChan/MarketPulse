@@ -32,6 +32,13 @@ namespace MarketPulse.Views
 
             DGView_Currency.DataSource = _controller.AllRates;
             label_UpdateTime.Text = $"更新時間：{_controller.LastUpdateTime}";
+
+            DGView_Currency.Columns[0].HeaderText = "幣別代碼";
+            DGView_Currency.Columns[1].HeaderText = "名稱";
+            DGView_Currency.Columns[2].HeaderText = "現金買入";
+            DGView_Currency.Columns[3].HeaderText = "現金賣出";
+            DGView_Currency.Columns[4].HeaderText = "即期買入";
+            DGView_Currency.Columns[5].HeaderText = "即期賣出";
         }
 
         private void txtAmountOrCurrencyChanged(object sender, EventArgs e)

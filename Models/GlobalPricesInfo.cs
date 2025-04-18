@@ -54,7 +54,7 @@ namespace MarketPulse.Models
             var commodityMap = new Dictionary<string, string>
             {
                 { "GC=F", "黃金" }, { "SI=F", "白銀" }, { "HG=F", "銅" }, { "PL=F", "鉑金" }, { "PA=F", "鈀金" },
-                { "CL=F", "原油(WTI)" }, { "BZ=F", "原油(Brent)" }, { "NG=F", "天然氣" }, { "HO=F", "燃油" }, { "RB=F", "汽油" },
+                { "CL=F", "原油" }, { "BZ=F", "原油" }, { "NG=F", "天然氣" }, { "HO=F", "燃油" }, { "RB=F", "汽油" },
                 { "ZC=F", "玉米" }, { "ZW=F", "小麥" }, { "ZS=F", "黃豆" }, { "ZO=F", "燕麥" }, { "ZM=F", "黃豆粉" }, { "ZL=F", "黃豆油" },
                 { "KC=F", "咖啡" }, { "SB=F", "糖" }, { "CC=F", "可可" }, { "OJ=F", "橙汁" }, { "CT=F", "棉花" },
                 { "LE=F", "活牛" }, { "HE=F", "活豬" }, { "GF=F", "牛肉" }

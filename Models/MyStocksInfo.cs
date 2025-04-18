@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -13,6 +14,9 @@ namespace MarketPulse.Models
         public string StockSymbol { get; set; }
         public decimal Price { get; set; }
         public double Change { get; set; }
+        public long Volume { get; set; }
+        public double Open { get; set; }
+        public string TradeTime { get; set; }
 
         private static readonly HttpClient _httpClient = new HttpClient();
 
@@ -68,9 +72,14 @@ namespace MarketPulse.Models
 
             try
             {
-                var securities = await Yahoo.Symbols(stockSymbols.ToArray())
-                                            .Fields(Field.ShortName, Field.RegularMarketPrice, Field.RegularMarketChange)
-                                            .QueryAsync();
+                var securities = await Yahoo.Symbols(stockSymbols.ToArray()).Fields(
+                    Field.ShortName,
+                    Field.RegularMarketPrice,
+                    Field.RegularMarketChange,
+                    Field.RegularMarketVolume,
+                    Field.RegularMarketOpen,
+                    Field.RegularMarketTime)
+                .QueryAsync();
 
                 foreach (var symbol in stockSymbols)
                 {
@@ -79,10 +88,13 @@ namespace MarketPulse.Models
                     {
                         StockSymbol = symbol,
                         Price = Convert.ToDecimal(stock[Field.RegularMarketPrice]),
-                        Change = Math.Round(Convert.ToDouble(stock[Field.RegularMarketChange]), 2)
+                        Change = Math.Round(Convert.ToDouble(stock[Field.RegularMarketChange]), 2),
+                        Volume = Convert.ToInt64(stock[Field.RegularMarketVolume]),
+                        Open = Convert.ToDouble(stock[Field.RegularMarketOpen]),
+                        TradeTime = DateTimeOffset.FromUnixTimeSeconds(stock[Field.RegularMarketTime]).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")
                     });
 
-                    Console.WriteLine($"{symbol}: {stock[Field.RegularMarketPrice]} ({stock[Field.RegularMarketChange]})");
+                    //Console.WriteLine($"{symbol}: {stock[Field.RegularMarketPrice]} ({stock[Field.RegularMarketChange]})");
                 }
             }
             catch (Exception ex)
@@ -91,6 +103,35 @@ namespace MarketPulse.Models
             }
 
             return stockList;
+        }
+
+        public static List<string> ReadSymbolsFromFile(string filePath)
+        {
+            var stockSymbols = new List<string>();
+
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    var lines = File.ReadAllLines(filePath);
+                    foreach (var line in lines)
+                    {
+                        var trimmed = line.Trim();
+                        if (!string.IsNullOrEmpty(trimmed))
+                            stockSymbols.Add(trimmed);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"找不到檔案：{filePath}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("讀取股票清單失敗：" + ex.Message);
+            }
+
+            return stockSymbols;
         }
     }
 }
