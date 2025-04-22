@@ -61,6 +61,7 @@ namespace MarketPulse.Models
             }
             catch (Exception ex)
             {
+                string error = $"Error：{ex.Message}";
                 updateTime = "無法取得更新時間";
             }
 

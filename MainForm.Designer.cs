@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonForeignExchange = new System.Windows.Forms.Button();
             this.buttonGlobalPrices = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonStock = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.buttonToolboxCollapse = new System.Windows.Forms.Button();
-            this.buttonForeignExchange = new System.Windows.Forms.Button();
+            this.buttonAsktoAI = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,6 +52,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.buttonAsktoAI);
             this.splitContainer1.Panel1.Controls.Add(this.buttonForeignExchange);
             this.splitContainer1.Panel1.Controls.Add(this.buttonGlobalPrices);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSearch);
@@ -64,6 +66,19 @@
             this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // buttonForeignExchange
+            // 
+            this.buttonForeignExchange.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonForeignExchange.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonForeignExchange.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonForeignExchange.Location = new System.Drawing.Point(0, 165);
+            this.buttonForeignExchange.Name = "buttonForeignExchange";
+            this.buttonForeignExchange.Size = new System.Drawing.Size(200, 55);
+            this.buttonForeignExchange.TabIndex = 3;
+            this.buttonForeignExchange.Text = "外匯";
+            this.buttonForeignExchange.UseVisualStyleBackColor = false;
+            this.buttonForeignExchange.Click += new System.EventHandler(this.buttonForeignExchange_Click);
             // 
             // buttonGlobalPrices
             // 
@@ -129,18 +144,18 @@
             this.buttonToolboxCollapse.UseVisualStyleBackColor = false;
             this.buttonToolboxCollapse.Click += new System.EventHandler(this.buttonToolboxCollapse_Click);
             // 
-            // buttonForeignExchange
+            // buttonAsktoAI
             // 
-            this.buttonForeignExchange.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonForeignExchange.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonForeignExchange.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.buttonForeignExchange.Location = new System.Drawing.Point(0, 165);
-            this.buttonForeignExchange.Name = "buttonForeignExchange";
-            this.buttonForeignExchange.Size = new System.Drawing.Size(200, 55);
-            this.buttonForeignExchange.TabIndex = 3;
-            this.buttonForeignExchange.Text = "外匯";
-            this.buttonForeignExchange.UseVisualStyleBackColor = false;
-            this.buttonForeignExchange.Click += new System.EventHandler(this.buttonForeignExchange_Click);
+            this.buttonAsktoAI.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonAsktoAI.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAsktoAI.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.buttonAsktoAI.Location = new System.Drawing.Point(0, 220);
+            this.buttonAsktoAI.Name = "buttonAsktoAI";
+            this.buttonAsktoAI.Size = new System.Drawing.Size(200, 55);
+            this.buttonAsktoAI.TabIndex = 4;
+            this.buttonAsktoAI.Text = "問問題";
+            this.buttonAsktoAI.UseVisualStyleBackColor = false;
+            this.buttonAsktoAI.Click += new System.EventHandler(this.buttonAsktoAI_Click);
             // 
             // MainForm
             // 
@@ -169,6 +184,7 @@
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonGlobalPrices;
         private System.Windows.Forms.Button buttonForeignExchange;
+        private System.Windows.Forms.Button buttonAsktoAI;
     }
 }
 

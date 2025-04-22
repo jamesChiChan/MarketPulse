@@ -98,6 +98,11 @@ namespace MarketPulse
             OpenFormInTab("Currency Convert", "外匯", new CurrencyConvertForm());
         }
 
+        private void buttonAsktoAI_Click(object sender, EventArgs e)
+        {
+            OpenFormInTab("Ask to AI", "問AI", new AskAIForm());
+        }
+
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
             TabPage tabPage = tabControl1.TabPages[e.Index];
@@ -133,7 +138,5 @@ namespace MarketPulse
                 }
             }
         }
-
-        
     }
 }
