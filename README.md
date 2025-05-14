@@ -4,6 +4,10 @@
 - Language: C#
 - Architecture design: MVC mode (Model-View-Controller)
 
+## 🔐 This project needs to set GEMINI_API_KEY by yourself.
+Please go to https://ai.google.dev/gemini-api/docs/api-key to apply for a Google Gemini API Key.
+Then go to Models/AskAIInfo.cs and fill in the key on line 163
+
 ## 🎯 Project Goal
 Develop a desktop platform that integrates real-time **stock tracking**, **currency conversion**, **international commodities** and **AI Q&A**, allowing users to conveniently query market information and quickly ask financial questions and get concise answers.
 
