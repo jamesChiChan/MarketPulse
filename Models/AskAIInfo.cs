@@ -160,7 +160,7 @@ namespace MarketPulse.Models
         }
 
         private static readonly HttpClient _client = new HttpClient();
-        private const string ApiKey = "AIzaSyCocvKgSwWYhDhXHVPPNKR3uKNIL11FxtY";
+        private const string ApiKey = "ApplyYourKey";
         private const string Endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + ApiKey;
 
         public static string AsktoGemini(string question)
